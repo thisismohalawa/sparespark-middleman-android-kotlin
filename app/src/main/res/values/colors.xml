@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="blue">#2196F3</color>
+    <color name="dark">#121212</color>
+    <color name="light">#FFFFFFFF</color>
+
+    <color name="green">#5eab3d</color>
+    <color name="red">#c46e6e</color>
+
+    <color name="nav_light_gray">#ECF0FD</color>
+    <color name="nav_transparent">#99000000</color>
+
+
+</resources><!--
+DARK #5A5A5A #737373
+    <color name="nav_light_gray">#ECF0FD</color>
+    logo colors
+    #EC297B
+    #ED83B5
+    #F2E3E6
+-->

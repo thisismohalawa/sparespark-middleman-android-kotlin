@@ -1,0 +1,14 @@
+<resources>
+
+    <style name="Base.Theme.Middleman" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorOnPrimary">@color/dark</item>
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorAccent">@color/green</item>
+
+        <item name="colorSecondary">@color/light</item>
+        <item name="colorOnSecondary">@color/nav_transparent</item>
+
+        <item name="android:windowBackground">?attr/colorOnPrimary</item>
+        <item name="android:statusBarColor">?attr/colorOnPrimary</item>
+    </style>
+</resources>

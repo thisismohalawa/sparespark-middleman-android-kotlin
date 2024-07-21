@@ -1,0 +1,84 @@
+<resources>
+    <!--MainActivity-->
+    <string name="app_name">Middleman</string>
+    <string name="profile">Profile</string>
+    <string name="hello_neighbour">Hello Neighbour!</string>
+    <string name="products">Products</string>
+    <string name="favourites">Favourites</string>
+    <string name="new_">Announcement</string>
+    <string name="search_for_product">Search for a product or brand</string>
+    <string name="search">Search</string>
+    <string name="contact">Contact Us</string>
+    <string name="continue_">Continue</string>
+    <string name="error_app_updates">Error while getting the app updates info!</string>
+    <string name="error_update_version">Error while updating the current version!</string>
+    <string name="comment_not_yet_impl">Comments are not yet implemented!</string>
+
+    <!--Login-->
+    <string name="sign_in_">SIGN IN ?</string>
+    <string name="sign_out_">SIGN OUT ?</string>
+    <string name="no_internet">No Internet Connection.</string>
+    <string name="cant_find_auth_user">Can\'t find auth user.</string>
+    <string name="unable_to_sign_out">Unable to complete the signing out process.</string>
+    <string name="unable_to_sign_in">Unable to complete the signing process.</string>
+    <string name="can_not_read_local_data">Can\'t read local data.</string>
+    <string name="can_not_read_remote_data">Can\'t read remote data.</string>
+    <string name="cannot_update_remote_data">Cannot Update Remote Data</string>
+    <string name="cannot_update_local_entries">Cannot Update Local Entries</string>
+    <string name="remote_user_synced_successfully">Remote user synced successfully.</string>
+    <string name="remote_user_deleted_successfully">Your account has been delete successfully.</string>
+    <string name="signed_in_successfully">Signed in successfully.</string>
+    <string name="signed_out_state">You\'re currently signed out.</string>
+    <string name="delete_account">Delete Account</string>
+    <string name="login_status">Login Status?</string>
+    <string name="sign_desc">There are some features in application that typically will require you to be logged into a Google account for A secure login system is essential for protecting
+         user data and maintaining the privacy and confidentiality of online transactions. Here are some key features that should be present in a secure login system.</string>
+
+    <!--Brand-->
+    <string name="brands">Brands</string>
+    <string name="error_load_brands">Error while loading brands.</string>
+    <string name="error_load_products">Error while loading products.</string>
+    <string name="brand_service_off">Brand services have been turned off</string>
+    <string name="brand_service_on">You\'ll receive updates on any new products for brand.</string>
+    <string name="error_execute_service">Error while executing service action.</string>
+
+
+    <!--Cart-->
+    <string name="confirm">Confirm</string>
+    <string name="continue_via_whatsapp">Continue Via WhatsApp ?</string>
+    <string name="order_now">Order Now</string>
+    <string name="invalid_action">Can\'t Complete Action.</string>
+    <string name="ur_bag_is_empty">Your bag is empty!</string>
+    <string name="empty">Empty!</string>
+
+
+    <!--Favourites-->
+    <string name="add_to_bag">Add to bag</string>
+    <string name="remote_from_bag">Remove from bag</string>
+    <string name="description">Description</string>
+    <string name="title">Title</string>
+    <string name="available">Available</string>
+    <string name="unavailable">Unavailable</string>
+    <string name="fav_not_yet_listed">Favorites are not yet listed!</string>
+
+
+    <!--Settings-->
+    <string name="settings">Settings</string>
+    <string name="location">Location</string>
+    <string name="product_based_filters">Product based filters</string>
+    <string name="product_filters_summary">Enables customers to select a minimum and maximum price and shows products priced within that range.</string>
+    <string name="select_max_price">Select a maximum price.</string>
+    <string name="use_device_location">Use device location</string>
+    <string name="device_location_summary">Use device location to select a region and shows products within that location range.</string>
+    <string name="custom_location">Enter a custom location or services region.</string>
+
+
+    <!--Request-->
+    <string name="user_name">UserName</string>
+    <string name="phone_num">Phone number</string>
+    <string name="about">About</string>
+    <string name="invalid_input">Please fill out the required fields.</string>
+    <string name="invalid_num">Invalid phone number.</string>
+    <string name="request_updated_success">Your request has been updated successfully.</string>
+
+</resources>
