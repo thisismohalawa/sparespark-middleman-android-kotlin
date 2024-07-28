@@ -1,12 +1,9 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Base.Theme.Middleman" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorOnPrimary">@color/light</item>
-        <item name="colorPrimary">@color/blue</item>
-        <item name="colorAccent">@color/green</item>
-
-        <item name="colorSecondary">@color/dark</item>
-        <item name="colorOnSecondary">@color/nav_light_gray</item>
+        <item name="colorOnPrimary">@color/red_background</item>
+        <item name="colorPrimary">@color/red_light</item>
+        <item name="colorAccent">@color/red</item>
 
         <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">?attr/colorOnPrimary</item>
@@ -15,17 +12,27 @@
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
     </style>
 
-    <style name="_bottomAppBar" parent="@style/Widget.Material3.BottomAppBar">
-        <item name="backgroundTint">?attr/colorOnSecondary</item>
+    <style name="_descText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">start</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@android:color/darker_gray</item>
     </style>
 
-    <style name="_collapsingToolbar">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:contentInsetStart">0dp</item>
-        <item name="android:contentInsetLeft">0dp</item>
-        <item name="android:padding">@dimen/_5sdp</item>
+    <style name="_fontText" parent="_titleText">
+        <item name="android:textColor">?attr/colorAccent</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/_18sdp</item>
     </style>
+
+    <style name="_titleText" parent="_descText">
+        <item name="android:fontFamily">@font/tango_bold</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="_bottomAppBar" parent="@style/Widget.Material3.BottomAppBar" />
 
     <style name="_tabItem" parent="@android:style/TextAppearance.Small">
         <item name="android:fontFamily">@font/tango_bold</item>
@@ -33,26 +40,12 @@
         <item name="tabGravity">fill</item>
     </style>
 
-    <style name="_actionText">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textColor">@color/light</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:padding">@dimen/_10sdp</item>
-        <item name="android:textSize">@dimen/_10ssp</item>
-        <item name="android:maxLines">2</item>
-        <item name="android:layout_centerInParent">true</item>
-        <item name="android:layout_alignParentBottom">true</item>
-
-    </style>
-
-
     <style name="_progressBar">
         <item name="android:layout_width">@dimen/_40sdp</item>
         <item name="android:layout_height">@dimen/_40sdp</item>
         <item name="android:layout_gravity">center</item>
-        <item name="android:visibility">invisible</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_centerVertical">true</item>
     </style>
 
     <style name="_productImg">
@@ -64,23 +57,14 @@
         <item name="android:scaleType">fitXY</item>
     </style>
 
-    <style name="_brandTitle">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">start</item>
-        <item name="android:textColor">?attr/colorSecondary</item>
-    </style>
 
-    <style name="_infoTitle" parent="_brandTitle">
-        <item name="android:fontFamily">@font/tango_bold</item>
-        <item name="android:textSize">@dimen/_16ssp</item>
-    </style>
-
-    <style name="_gifImg">
-        <item name="android:layout_width">@dimen/_150sdp</item>
-        <item name="android:layout_height">@dimen/_160sdp</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_gravity">center</item>
+    <style name="_paddingLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:paddingStart">@dimen/_15sdp</item>
+        <item name="android:paddingEnd">@dimen/_15sdp</item>
+        <item name="android:paddingTop">@dimen/_10sdp</item>
     </style>
 
     <style name="_floatingActionBtn">
@@ -88,10 +72,21 @@
         <item name="android:layout_height">@dimen/_45sdp</item>
         <item name="android:layout_alignParentEnd">true</item>
         <item name="android:layout_alignParentBottom">true</item>
-        <item name="android:backgroundTint">@color/blue</item>
+        <item name="android:backgroundTint">@color/red</item>
         <item name="android:layout_margin">@dimen/_15sdp</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>
 
+    <style name="_actionBtn">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textColor">@color/light</item>
+        <item name="android:background">@drawable/item_action_shape</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

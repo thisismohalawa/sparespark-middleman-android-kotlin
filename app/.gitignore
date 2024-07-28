@@ -1,1 +1,6 @@
 /build
+src/main/res
+src/main/java/sparespark/middleman/common/DataExtension.kt
+src/main/java/sparespark/middleman/common/X.kt
+src/main/java/sparespark/middleman/common/Y.kt
+src/main/java/sparespark/middleman/model/implementation/ProductRepositoryImpl
