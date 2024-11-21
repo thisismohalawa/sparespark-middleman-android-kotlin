@@ -14,8 +14,8 @@ android {
         applicationId = "sparespark.middleman"
         minSdk = 24
         targetSdk = 34
-        versionCode = 5
-        versionName = "1.5-beta"
+        versionCode = 6
+        versionName = "1.6-beta"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -38,6 +38,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
@@ -45,7 +46,10 @@ dependencies {
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.appcompat:appcompat:1.7.0")
     implementation("com.google.android.material:material:1.12.0")
-    implementation("androidx.activity:activity-ktx:1.9.0")
+    implementation("androidx.activity:activity-ktx:1.9.3")
+    implementation("androidx.activity:activity:1.9.3")
+    implementation("androidx.constraintlayout:constraintlayout:2.2.0")
+    implementation("com.google.android.play:app-update-ktx:2.1.0")
     testImplementation("junit:junit:4.13.2")
 
     //noinspection KaptUsageInsteadOfKsp
@@ -57,11 +61,11 @@ dependencies {
     implementation("com.intuit.ssp:ssp-android:1.0.6")
     implementation("com.intuit.sdp:sdp-android:1.0.6")
 
-    implementation("com.google.firebase:firebase-auth:23.0.0")
+    implementation("com.google.firebase:firebase-auth:23.1.0")
     implementation("com.google.firebase:firebase-database:21.0.0")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.7")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.7")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.8.4")
+    implementation("androidx.navigation:navigation-ui-ktx:2.8.4")
 
     implementation("androidx.preference:preference-ktx:1.2.1")
 
@@ -69,7 +73,8 @@ dependencies {
 
     implementation("com.google.code.gson:gson:2.10.1")
     implementation("com.google.android.gms:play-services-auth:21.2.0")
-    implementation("com.google.android.play:core-ktx:1.8.1")
+    implementation("com.google.android.play:review-ktx:2.0.2")
+    implementation("com.google.android.play:asset-delivery-ktx:2.2.2")
 
     implementation("com.github.bumptech.glide:glide:4.16.0")
 

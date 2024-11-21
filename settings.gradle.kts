@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Middleman"
+rootProject.name = "Middleman-CLEAN"
 include(":app")

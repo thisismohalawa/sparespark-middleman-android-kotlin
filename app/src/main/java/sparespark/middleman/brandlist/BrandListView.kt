@@ -4,82 +4,115 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
 import sparespark.middleman.R
-import sparespark.middleman.brandlist.buidlogic.BrandListInjector
-import sparespark.middleman.common.EventObserver
-import sparespark.middleman.common.setListItemDecoration
-import sparespark.middleman.product.ProductActivity
-import sparespark.middleman.product.ProductActivityInteract
-import sparespark.middleman.product.container.ContainerViewDirections
+import sparespark.middleman.brandlist.buildlogic.BrandListInjector
+import sparespark.middleman.core.binding.ViewBindingHolder
+import sparespark.middleman.core.binding.ViewBindingHolderImpl
+import sparespark.middleman.core.isMatch
+import sparespark.middleman.core.setupListItemDecoration
+import sparespark.middleman.core.wrapper.EventObserver
+import sparespark.middleman.data.model.brand.Brand
+import sparespark.middleman.databinding.FragmentBrandListBinding
+import sparespark.middleman.home.HomeActivityInteract
 
-class BrandListView : Fragment() {
+class BrandListView : Fragment(),
+    ViewBindingHolder<FragmentBrandListBinding> by ViewBindingHolderImpl() {
 
-    private lateinit var recyclerView: RecyclerView
     private lateinit var listAdapter: BrandListAdapter
     private lateinit var viewModel: BrandListViewModel
-    private lateinit var viewCommunicate: ProductActivityInteract
+    private lateinit var viewInteract: HomeActivityInteract
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? = inflater.inflate(R.layout.fragment_brand_list, container, false)
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        recyclerView = view.findViewById(R.id.rec_list_fragment)
-    }
+        savedInstanceState: Bundle?,
+    ): View =
+        initBinding(FragmentBrandListBinding.inflate(layoutInflater), this@BrandListView) {
+            setupViewInteract()
+            setupViewInputs()
+            setupRecyclerView()
+            setupViewModel()
+            viewModel.startObserving()
+        }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        recyclerView.adapter = null
+        destroyBinding()
     }
 
-    override fun onStart() {
-        super.onStart()
-        viewCommunicate = activity as ProductActivity
+    private fun setupViewInteract() {
+        viewInteract = activity as HomeActivityInteract
+    }
+
+    private fun setupViewInputs() {
+        binding?.apply {
+            itemSearch.mtSearchView.queryHint = getString(R.string.search_for_brand)
+        }
+    }
+
+    private fun setupViewModel() {
         viewModel = ViewModelProvider(
-            owner = this,
-            factory = BrandListInjector(requireActivity().application).provideBrandListViewModelFactory()
+            owner = this@BrandListView,
+            factory = BrandListInjector(requireActivity().application).provideViewModelFactory()
         )[BrandListViewModel::class.java]
         viewModel.handleEvent(BrandListEvent.GetBrands)
-        setUpRecyclerView()
-        viewModel.startObserving()
     }
 
-    private fun setUpRecyclerView() {
+    private fun setupRecyclerView() {
         listAdapter = BrandListAdapter()
-        listAdapter.event.observe(
-            viewLifecycleOwner,
-            Observer {
-                viewModel.handleEvent(it)
-            }
-        )
-        recyclerView.setListItemDecoration(requireContext())
-        recyclerView.adapter = listAdapter
+        binding?.recListFragment?.apply {
+            setupListItemDecoration(requireContext())
+            adapter = listAdapter
+        }
+        listAdapter.event.observe(viewLifecycleOwner) {
+            viewModel.handleEvent(it)
+        }
     }
 
     private fun BrandListViewModel.startObserving() {
         loading.observe(viewLifecycleOwner) {
-            viewCommunicate.updateLoadingView(it)
+            viewInteract.updateProgressBarVisible(it)
         }
         error.observe(viewLifecycleOwner) {
-            viewCommunicate.showError(it.asString(requireContext()))
+            viewInteract.displayToast(it.asString(requireContext()))
         }
         brandsList.observe(viewLifecycleOwner) {
             listAdapter.submitList(it)
+            setupSearchViewListener(it)
         }
-        exploreBrand.observe(viewLifecycleOwner, EventObserver {
-            startFilteredList(it)
+        editBrand.observe(viewLifecycleOwner, EventObserver {
+            if (isDestination()) findNavController().navigate(
+                BrandListViewDirections.navigateToBrandDetails(
+                    brandId = it
+                )
+            )
         })
     }
 
-    private fun startFilteredList(brandId: String) = findNavController().navigate(
-        ContainerViewDirections.navigateToFilterView(brandId)
-    )
+    private fun setupSearchViewListener(list: List<Brand>) {
+        binding?.itemSearch?.mtSearchView?.setOnQueryTextListener(object :
+            SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                newText?.let {
+                    val filteredList = mutableListOf<Brand>()
+                    for (brand: Brand in list)
+                        if (brand.name.isMatch(it)) filteredList.add(brand)
+                        else if (brand.title.isMatch(it)) filteredList.add(brand)
+
+                    if (filteredList.isNotEmpty()) listAdapter.submitList(filteredList)
+                }
+                return true
+            }
+        })
+    }
+
+    private fun isDestination() = findNavController().currentDestination?.id == R.id.brandListView
 }

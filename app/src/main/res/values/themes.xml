@@ -1,38 +1,21 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
     <style name="Base.Theme.Middleman" parent="Theme.Material3.Light.NoActionBar">
-        <item name="colorOnPrimary">@color/red_background</item>
-        <item name="colorPrimary">@color/red_light</item>
-        <item name="colorAccent">@color/red</item>
+        <item name="colorPrimary">@color/red</item>
+        <item name="colorOnPrimary">@color/light</item>
+        <item name="colorOnSecondary">@color/dark</item>
+        <item name="colorAccent">@color/light_red</item>
 
-        <item name="android:windowLightStatusBar">true</item>
         <item name="android:statusBarColor">?attr/colorOnPrimary</item>
         <item name="android:windowBackground">?attr/colorOnPrimary</item>
         <item name="android:navigationBarColor">?attr/colorOnPrimary</item>
+        <item name="android:windowLightStatusBar">true</item>
         <item name="android:windowLightNavigationBar" tools:targetApi="o_mr1">true</item>
     </style>
 
-    <style name="_descText">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:gravity">start</item>
-        <item name="android:ellipsize">end</item>
-        <item name="android:textColor">@android:color/darker_gray</item>
+    <style name="_bottomAppBar" parent="@style/Widget.Material3.BottomAppBar">
+        <item name="android:backgroundTint">?attr/colorOnPrimary</item>
     </style>
-
-    <style name="_fontText" parent="_titleText">
-        <item name="android:textColor">?attr/colorAccent</item>
-        <item name="android:textStyle">bold</item>
-        <item name="android:textSize">@dimen/_18sdp</item>
-    </style>
-
-    <style name="_titleText" parent="_descText">
-        <item name="android:fontFamily">@font/tango_bold</item>
-        <item name="android:maxLines">1</item>
-        <item name="android:textColor">@android:color/black</item>
-    </style>
-
-    <style name="_bottomAppBar" parent="@style/Widget.Material3.BottomAppBar" />
 
     <style name="_tabItem" parent="@android:style/TextAppearance.Small">
         <item name="android:fontFamily">@font/tango_bold</item>
@@ -40,42 +23,19 @@
         <item name="tabGravity">fill</item>
     </style>
 
-    <style name="_progressBar">
-        <item name="android:layout_width">@dimen/_40sdp</item>
-        <item name="android:layout_height">@dimen/_40sdp</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_centerInParent">true</item>
-        <item name="android:layout_centerVertical">true</item>
-    </style>
-
-    <style name="_productImg">
+    <style name="_navView" parent="Widget.Design.BottomNavigationView">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:gravity">center</item>
-        <item name="android:layout_centerInParent">true</item>
-        <item name="android:fitsSystemWindows">true</item>
-        <item name="android:scaleType">fitXY</item>
-    </style>
-
-
-    <style name="_paddingLayout">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">match_parent</item>
-        <item name="android:orientation">vertical</item>
-        <item name="android:paddingStart">@dimen/_15sdp</item>
-        <item name="android:paddingEnd">@dimen/_15sdp</item>
-        <item name="android:paddingTop">@dimen/_10sdp</item>
-    </style>
-
-    <style name="_floatingActionBtn">
-        <item name="android:layout_width">@dimen/_45sdp</item>
-        <item name="android:layout_height">@dimen/_45sdp</item>
-        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">?attr/colorOnPrimary</item>
         <item name="android:layout_alignParentBottom">true</item>
-        <item name="android:backgroundTint">@color/red</item>
-        <item name="android:layout_margin">@dimen/_15sdp</item>
-        <item name="android:clickable">true</item>
-        <item name="android:focusable">true</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
+    <style name="_progressBar">
+        <item name="android:layout_width">@dimen/progress_bar_size</item>
+        <item name="android:layout_height">@dimen/progress_bar_size</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="_actionBtn">
@@ -85,8 +45,31 @@
         <item name="android:gravity">center</item>
         <item name="android:layout_gravity">center</item>
         <item name="android:textColor">@color/light</item>
-        <item name="android:background">@drawable/item_action_shape</item>
+        <item name="android:background">@drawable/item_action_btn</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="_subActionBtn" parent="_actionBtn">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:background">@drawable/item_border_gray</item>
+    </style>
+
+    <style name="_editText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">start</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:inputType">text</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="_endedActionImg">
+        <item name="android:layout_height">@dimen/img_action_size</item>
+        <item name="android:layout_width">@dimen/img_action_size</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layout_centerInParent">true</item>
+    </style>
+
 </resources>

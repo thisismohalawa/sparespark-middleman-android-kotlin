@@ -9,15 +9,17 @@
         android:allowBackup="false"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@drawable/mm_logo"
+        android:icon="@drawable/ur_logo"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/mm_logo"
+        android:roundIcon="@drawable/ur_logo"
         android:supportsRtl="false"
         android:theme="@style/Base.Theme.Middleman"
         tools:targetApi="31">
-
         <activity
-            android:name=".product.ProductActivity"
+            android:name=".auth.AuthActivity"
+            android:exported="false" />
+        <activity
+            android:name=".home.HomeActivity"
             android:exported="true"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"

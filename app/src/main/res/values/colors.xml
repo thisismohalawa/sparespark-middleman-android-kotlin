@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="red">#EC297B</color>
-    <color name="red_light">#ED83B5</color>
-    <color name="red_background">#F2E3E6</color>
-    <color name="menu_transparent">#99ED83B5</color>
-    <color name="blue">#0072d0</color>
-    <color name="dark">#121212</color>
+    <color name="light_red">#ED83B5</color>
+    <color name="dark_red">#c46e6e</color>
+
+    <color name="gray">#F7F7F7</color>
+    <color name="light_gray">#949393</color>
+
+    <color name="green">#5eab3d</color>
+    <color name="light_green">#E8FF00</color>
+
     <color name="light">#FFFFFFFF</color>
+    <color name="dark">#121212</color>
 
     <color name="transparent">#99000000</color>
-
 
 </resources>

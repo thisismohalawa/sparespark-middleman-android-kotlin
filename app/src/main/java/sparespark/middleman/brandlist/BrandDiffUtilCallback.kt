@@ -1,7 +1,7 @@
 package sparespark.middleman.brandlist
 
 import androidx.recyclerview.widget.DiffUtil
-import sparespark.middleman.model.Brand
+import sparespark.middleman.data.model.brand.Brand
 
 class BrandDiffUtilCallback : DiffUtil.ItemCallback<Brand>() {
     override fun areItemsTheSame(oldItem: Brand, newItem: Brand): Boolean {
